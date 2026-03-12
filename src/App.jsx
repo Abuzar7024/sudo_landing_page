@@ -40,7 +40,7 @@ const news = [
 function App() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  
+
   useEffect(() => {
     // Initialize Lenis for Smooth Scroll
     const lenis = new Lenis({
@@ -59,7 +59,7 @@ function App() {
 
     const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener('scroll', handleScroll);
-    
+
     return () => {
       window.removeEventListener('scroll', handleScroll);
       lenis.destroy();
@@ -78,15 +78,15 @@ function App() {
   return (
     <>
       <div className="bg-canvas">
-        <motion.div 
+        <motion.div
           animate={{ x: [0, 60, -30, 0], y: [0, -30, 60, 0] }}
           transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-          className="blob" style={{ top: '0%', left: '0%', background: 'linear-gradient(135deg, #ff3d00, #7c3aed)', opacity: 0.08 }} 
+          className="blob" style={{ top: '0%', left: '0%', background: 'linear-gradient(135deg, #ff3d00, #7c3aed)', opacity: 0.08 }}
         />
-        <motion.div 
+        <motion.div
           animate={{ x: [0, -60, 30, 0], y: [0, 40, -20, 0] }}
           transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-          className="blob" style={{ bottom: '10%', right: '0%', background: 'linear-gradient(135deg, #7c3aed, #ff3d00)', opacity: 0.06 }} 
+          className="blob" style={{ bottom: '10%', right: '0%', background: 'linear-gradient(135deg, #7c3aed, #ff3d00)', opacity: 0.06 }}
         />
         <div className="bg-grid" />
       </div>
@@ -148,24 +148,24 @@ function App() {
 
       <section id="hero" className="section hero-section" style={{ position: 'relative' }}>
         <div style={{ position: 'absolute', top: '15%', left: '50%', width: '600px', height: '600px', background: 'var(--accent-secondary)', filter: 'blur(180px)', opacity: 0.1, borderRadius: '50%', pointerEvents: 'none' }} />
-        
+
         <div className="container hero-container" style={{ display: 'grid', gridTemplateColumns: '1.2fr 0.8fr', alignItems: 'center', gap: 60 }}>
           <motion.div initial="hidden" animate="visible" variants={stagger} className="hero-content" style={{ position: 'relative', zIndex: 2 }}>
             <motion.div variants={fadeIn} className="badge-new" style={{ backdropFilter: 'blur(10px)', border: '1px solid var(--accent-primary)', color: 'var(--accent-primary)' }}>
               <div style={{ color: '#ff3d00' }}><Zap size={16} fill="currentColor" /></div>
               Pioneering the Digital Frontier
             </motion.div>
-            
+
             <motion.h1 variants={fadeIn} className="heading-xl">
-              <span style={{ opacity: 0.4 }}>Building</span> <br/>
-              <span className="text-gradient">Digital Success</span> <br/>
+              <span style={{ opacity: 0.4 }}>Building</span> <br />
+              <span className="text-gradient">Digital Success</span> <br />
               <span>With Precision.</span>
             </motion.h1>
-            
+
             <motion.p variants={fadeIn} className="text-muted" style={{ fontSize: '1.25rem', maxWidth: '600px', lineHeight: 1.7, margin: '40px 0' }}>
               We partner with forward-thinking enterprises to build robust, scalable digital products. From Blockchain to AI, we transform complexity into seamless user experiences.
             </motion.p>
-            
+
             <motion.div variants={fadeIn} className="hero-actions" style={{ display: 'flex', gap: 24, flexWrap: 'wrap', alignItems: 'center' }}>
               <a href="#contact" className="btn btn-primary hero-btn" style={{ borderRadius: '14px' }}>
                 Consult Our Experts <ArrowRight size={20} />
@@ -176,9 +176,9 @@ function App() {
             </motion.div>
           </motion.div>
 
-          <motion.div 
-            initial={{ opacity: 0, x: 50 }} 
-            animate={{ opacity: 1, x: 0 }} 
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1, delay: 0.5 }}
             className="hero-visual-complex desktop-only"
             style={{ position: 'relative' }}
@@ -189,7 +189,7 @@ function App() {
                   <div style={{ width: 10, height: 10, borderRadius: '50%', background: '#ff3d00' }} />
                   <div style={{ width: 30, height: 2, background: 'var(--border-light)' }} />
                 </div>
-                <h3 style={{ fontSize: '1.2rem', fontWeight: 800 }}> Software Engineering <br/> & Architecture </h3>
+                <h3 style={{ fontSize: '1.2rem', fontWeight: 800 }}> Software Engineering <br /> & Architecture </h3>
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 15 }}>
                   <div style={{ background: 'var(--accent-glow)', padding: '15px', borderRadius: '15px' }}>
                     <h4 style={{ color: '#ff3d00', fontSize: '1.6rem' }}>10+</h4>
@@ -204,13 +204,13 @@ function App() {
             </div>
 
             {/* Floating Orbits */}
-            <motion.div 
-              animate={{ rotate: 360 }} 
+            <motion.div
+              animate={{ rotate: 360 }}
               transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
               style={{ position: 'absolute', top: '-10%', left: '-10%', right: '-10%', bottom: '-10%', border: '1px solid var(--border-light)', borderRadius: '50%', zIndex: 1, borderStyle: 'dashed' }}
             />
-            <motion.div 
-              animate={{ rotate: -360 }} 
+            <motion.div
+              animate={{ rotate: -360 }}
               transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
               style={{ position: 'absolute', top: '10%', left: '10%', right: '10%', bottom: '10%', border: '1px solid var(--accent-glow)', borderRadius: '50%', zIndex: 1 }}
             />
@@ -218,8 +218,8 @@ function App() {
         </div>
 
         {/* Scroll Indicator */}
-        <motion.div 
-          animate={{ y: [0, 20, 0] }} 
+        <motion.div
+          animate={{ y: [0, 20, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
           style={{ position: 'absolute', bottom: 40, left: '50%', transform: 'translateX(-50%)', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8 }}
         >
@@ -236,7 +236,7 @@ function App() {
               Tailored digital products built with the latest technologies and a modern approach to software development.
             </p>
           </motion.div>
-          
+
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={stagger} className="grid-creative">
             {services.map((s, i) => (
               <motion.div key={i} variants={fadeIn} className="creative-card">
@@ -258,7 +258,7 @@ function App() {
             <h2 className="heading-lg">Selected <span className="text-gradient">Success Stories</span></h2>
             <p className="text-muted" style={{ fontSize: '1.2rem', marginTop: 24 }}>Exceptional digital products built for innovative companies around the world.</p>
           </motion.div>
-          
+
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={stagger} className="grid-creative">
             {cases.map((item, idx) => (
               <motion.div key={idx} variants={fadeIn} className="creative-card" style={{ padding: 24 }}>
@@ -284,7 +284,7 @@ function App() {
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeIn} style={{ textAlign: 'center', marginBottom: 80 }}>
             <h2 className="heading-lg">What Our <span className="text-gradient">Clients Say</span></h2>
           </motion.div>
-          
+
           <div className="grid-creative">
             {testimonials.map((t, i) => (
               <motion.div key={i} variants={fadeIn} initial="hidden" whileInView="visible" viewport={{ once: true }} className="glass-panel" style={{ textAlign: 'center' }}>
@@ -336,12 +336,12 @@ function App() {
         <div className="container">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeIn} className="creative-card" style={{ background: '#0f172a', padding: '120px 40px', textAlign: 'center', overflow: 'hidden' }}>
             <div style={{ position: 'absolute', top: '-30%', left: '-10%', width: '70%', height: '160%', background: 'var(--accent-primary)', filter: 'blur(160px)', opacity: 0.2, borderRadius: '50%' }} />
-            <h2 className="heading-lg" style={{ color: '#fff', marginBottom: 32 }}>Have a Project in Mind? <br/> Let's build it <span className="text-gradient">together.</span></h2>
+            <h2 className="heading-lg" style={{ color: '#fff', marginBottom: 32 }}>Have a Project in Mind? <br /> Let's build it <span className="text-gradient">together.</span></h2>
             <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '1.3rem', maxWidth: 700, margin: '0 auto 56px', lineHeight: 1.6 }}>
               Fill out the form below or reach out to us directly. Our specialist will contact you within 24 hours.
             </p>
             <div style={{ display: 'flex', gap: 20, justifyContent: 'center', flexWrap: 'wrap' }}>
-              <button className="btn btn-primary" style={{ background: '#ff3d00', color: '#fff', padding: '24px 70px', fontSize: '1.2rem', border: 'none' }}>
+              <button className="btn btn-primary btn-cta-responsive" style={{ background: '#ff3d00', color: '#fff', border: 'none' }}>
                 Book Free Consultation
               </button>
               <div style={{ display: 'flex', alignItems: 'center', gap: 12, color: '#fff', fontWeight: 600 }}>
@@ -372,7 +372,7 @@ function App() {
                 <h4 style={{ fontSize: '1.2rem' }}>+91 97400-54621</h4>
               </div>
             </div>
-            
+
             <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
               <h4 style={{ marginBottom: 10, fontSize: '1.2rem' }}>Services</h4>
               <a href="#" className="text-muted" style={{ textDecoration: 'none' }}>Development</a>
@@ -398,7 +398,7 @@ function App() {
               </div>
             </div>
           </div>
-          
+
           <div style={{ marginTop: 120, paddingTop: 40, borderTop: '1px solid var(--border-light)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', color: '#000', fontWeight: 600 }}>
             <span>© 2025 Sodio Technologies — BlockAI Software Solutions.</span>
             <div style={{ display: 'flex', gap: 40 }}>

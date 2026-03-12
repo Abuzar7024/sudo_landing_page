@@ -138,8 +138,25 @@ body {
   backdrop-filter: blur(10px);
 }
 .btn-outline:hover {
-  background: #fff; border-color: var(--text-main);
+  background: var(--bg-dark);
+  border-color: var(--accent-primary);
   transform: translateY(-3px);
+}
+
+.btn-cta-responsive {
+  padding: 24px 70px;
+  font-size: 1.2rem;
+  color: #ffffff !important;
+  font-weight: 700;
+  border-radius: 14px;
+}
+
+@media (max-width: 768px) {
+  .btn-cta-responsive {
+    padding: 16px 32px !important;
+    font-size: 1rem !important;
+    width: 100%;
+  }
 }
 
 /* --- Creative Typography --- */
@@ -440,6 +457,7 @@ h1, h2, h3, h4 { font-family: var(--font-heading); font-weight: 700; color: var(
     padding: 16px !important;
     height: 56px !important;
     border-radius: 12px !important;
+    color: #ffffff !important;
   }
 }
 
