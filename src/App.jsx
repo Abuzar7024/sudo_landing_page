@@ -400,7 +400,12 @@ function App() {
           </div>
           
           <div style={{ marginTop: 120, paddingTop: 40, borderTop: '1px solid var(--border-light)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', color: '#000', fontWeight: 600 }}>
-            <span>© 2025 Sodio Technologies — BlockAI Software Solutions.</span>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+              <span>© 2025 Sodio Technologies — BlockAI Software Solutions.</span>
+              <span className="text-muted" style={{ fontSize: '0.8rem', fontWeight: 400 }}>
+                Enhanced & Handcrafted by <span style={{ color: '#ff3d00', fontWeight: 700 }}>Antigravity AI</span>
+              </span>
+            </div>
             <div style={{ display: 'flex', gap: 40 }}>
               <a href="#" style={{ color: '#000', textDecoration: 'none' }}>LinkedIn</a>
               <a href="#" style={{ color: '#000', textDecoration: 'none' }}>Telegram</a>
