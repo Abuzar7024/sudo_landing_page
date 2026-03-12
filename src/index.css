@@ -22,7 +22,11 @@
   --font-body: 'Inter', sans-serif;
 }
 
-/* html rules moved to individual elements if needed */
+html {
+  /* scroll-behavior: smooth; */ /* Disabled to allow Lenis to handle it smoothly */
+  overflow-x: hidden;
+  width: 100%;
+}
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -32,6 +36,7 @@ body {
   font-family: var(--font-body);
   line-height: 1.6;
   overflow-x: hidden;
+  width: 100%;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -333,35 +338,44 @@ h1, h2, h3, h4 { font-family: var(--font-heading); font-weight: 700; color: var(
   .nav-links { display: none; }
   .mobile-menu-btn { display: flex; }
   .desktop-only { display: none; }
-  .container { padding: 0 32px; }
-  .section { padding: 80px 0; }
-  .heading-xl { font-size: 3.5rem; letter-spacing: -2px; text-align: center; }
-  .heading-lg { font-size: 2.8rem; text-align: center; }
+  .container { padding: 0 24px; } /* Slightly tighter for mobile */
+  .section { padding: 60px 0; overflow-x: hidden; } /* Ensure sections don't leak */
+  .heading-xl { font-size: 3rem; letter-spacing: -1.5px; text-align: center; }
+  .heading-lg { font-size: 2.2rem; text-align: center; }
   .grid-creative { grid-template-columns: 1fr; gap: 24px; }
   
+  /* Prevent blobs from causing horizontal scroll */
+  .blob {
+    width: 300px;
+    height: 300px;
+    filter: blur(60px);
+  }
+
   /* Hero specific mobile center */
   .hero-container {
     grid-template-columns: 1fr !important;
     text-align: center;
-    padding-top: 40px;
+    padding-top: 20px;
   }
   .hero-content {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin: 0 auto;
+    width: 100%;
   }
   .hero-content p {
     text-align: center;
-    margin: 32px auto !important;
+    margin: 24px auto !important;
+    font-size: 1.1rem !important;
   }
   .hero-actions {
     justify-content: center;
     width: 100%;
+    gap: 16px !important;
   }
   .hero-visual-complex {
-    margin-top: 60px;
-    display: none; /* Hide complex hero visual on mobile for clarity */
+    display: none; 
   }
 
   /* Section Header Centering */
@@ -370,23 +384,35 @@ h1, h2, h3, h4 { font-family: var(--font-heading); font-weight: 700; color: var(
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
-    justify-content: center !important;
-  }
-  .section-header-centered h2, .section-header-centered p {
-    text-align: center !important;
+    width: 100% !important;
   }
   
+  .section-header-centered > div {
+    text-align: center !important;
+    width: 100%;
+  }
+  
+  /* Footer Natural Alignment */
   footer .grid-creative {
     grid-template-columns: 1fr !important;
-    text-align: center !important;
+    text-align: left !important;
+    gap: 32px;
   }
   footer .grid-creative > div {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
   }
   footer .grid-creative p {
-    margin: 0 auto;
+    margin: 0;
+    text-align: left;
+  }
+  
+  footer .container > div:last-child {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 24px;
+    text-align: left;
   }
 }
 
