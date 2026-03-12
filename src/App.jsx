@@ -149,8 +149,8 @@ function App() {
       <section className="section" style={{ minHeight: '120vh', display: 'flex', alignItems: 'center', paddingTop: 180, paddingBottom: 100, position: 'relative' }}>
         <div style={{ position: 'absolute', top: '15%', left: '50%', width: '600px', height: '600px', background: 'var(--accent-secondary)', filter: 'blur(180px)', opacity: 0.1, borderRadius: '50%', pointerEvents: 'none' }} />
         
-        <div className="container" style={{ display: 'grid', gridTemplateColumns: '1.2fr 0.8fr', alignItems: 'center', gap: 60 }}>
-          <motion.div initial="hidden" animate="visible" variants={stagger} style={{ position: 'relative', zIndex: 2 }}>
+        <div className="container hero-container" style={{ display: 'grid', gridTemplateColumns: '1.2fr 0.8fr', alignItems: 'center', gap: 60 }}>
+          <motion.div initial="hidden" animate="visible" variants={stagger} className="hero-content" style={{ position: 'relative', zIndex: 2 }}>
             <motion.div variants={fadeIn} className="badge-new" style={{ backdropFilter: 'blur(10px)', border: '1px solid var(--accent-primary)', color: 'var(--accent-primary)' }}>
               <div style={{ color: '#ff3d00' }}><Zap size={16} fill="currentColor" /></div>
               Pioneering the Digital Frontier
@@ -166,7 +166,7 @@ function App() {
               We partner with forward-thinking enterprises to build robust, scalable digital products. From Blockchain to AI, we transform complexity into seamless user experiences.
             </motion.p>
             
-            <motion.div variants={fadeIn} style={{ display: 'flex', gap: 24, flexWrap: 'wrap', alignItems: 'center' }}>
+            <motion.div variants={fadeIn} className="hero-actions" style={{ display: 'flex', gap: 24, flexWrap: 'wrap', alignItems: 'center' }}>
               <a href="#contact" className="btn btn-primary hero-btn" style={{ borderRadius: '14px' }}>
                 Consult Our Experts <ArrowRight size={20} />
               </a>
@@ -254,7 +254,7 @@ function App() {
 
       <section id="portfolio" className="section" style={{ background: 'rgba(255,112,67,0.03)' }}>
         <div className="container">
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeIn} style={{ marginBottom: 80 }}>
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeIn} className="section-header-centered" style={{ marginBottom: 80 }}>
             <h2 className="heading-lg">Selected <span className="text-gradient">Success Stories</span></h2>
             <p className="text-muted" style={{ fontSize: '1.2rem', marginTop: 24 }}>Exceptional digital products built for innovative companies around the world.</p>
           </motion.div>
@@ -302,7 +302,7 @@ function App() {
 
       <section id="blog" className="section" style={{ background: '#fff' }}>
         <div className="container">
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: 80 }}>
+          <div className="section-header-centered" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: 80, flexWrap: 'wrap', gap: 20 }}>
             <div>
               <h2 className="heading-lg">Latest <span className="text-gradient">Articles</span></h2>
               <p className="text-muted" style={{ fontSize: '1.2rem', marginTop: 16 }}>Stay updated with the latest in tech and innovation.</p>
