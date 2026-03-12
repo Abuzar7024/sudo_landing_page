@@ -37,6 +37,26 @@ const news = [
   { title: "How to Make an App Like Apple Health", date: "Jan 3, 2025", cat: "Fitness Tech", img: "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&q=80&w=800" }
 ];
 
+// Custom Reusable Button Component
+const Button = ({ children, variant = "primary", className = "", href, style, ...props }) => {
+  const baseClass = variant === "primary" ? "btn btn-primary" : "btn btn-outline";
+  const finalClass = `${baseClass} ${className}`.trim();
+  
+  if (href) {
+    return (
+      <a href={href} className={finalClass} style={style} {...props}>
+        {children}
+      </a>
+    );
+  }
+  
+  return (
+    <button className={finalClass} style={style} {...props}>
+      {children}
+    </button>
+  );
+};
+
 function App() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -128,7 +148,7 @@ function App() {
           </ul>
 
           <div className="nav-actions">
-            <a href="#contact" className="btn btn-primary desktop-only">Book Free Consultation</a>
+            <Button href="#contact" className="desktop-only">Book Free Consultation</Button>
             <button className="mobile-menu-btn" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
               {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -153,9 +173,9 @@ function App() {
         </div>
 
         <div style={{ marginTop: 'auto', paddingTop: 40 }}>
-          <a href="#contact" onClick={() => setMobileMenuOpen(false)} className="btn btn-primary btn-cta-responsive" style={{ width: '100%', color: '#fff' }}>
+          <Button href="#contact" onClick={() => setMobileMenuOpen(false)} style={{ width: '100%' }}>
             Book Free Consultation
-          </a>
+          </Button>
         </div>
       </div>
 
@@ -180,12 +200,12 @@ function App() {
             </motion.p>
 
             <motion.div variants={fadeIn} className="hero-actions" style={{ display: 'flex', gap: 24, flexWrap: 'wrap', alignItems: 'center' }}>
-              <a href="#contact" className="btn btn-primary hero-btn" style={{ borderRadius: '14px' }}>
+              <Button href="#contact" className="hero-btn" style={{ borderRadius: '14px' }}>
                 Consult Our Experts <ArrowRight size={20} />
-              </a>
-              <a href="#portfolio" className="btn btn-outline" style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '16px 32px', borderRadius: '14px' }}>
+              </Button>
+              <Button href="#portfolio" variant="outline" style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '16px 32px', borderRadius: '14px' }}>
                 View Success Stories <ArrowUpRight size={18} />
-              </a>
+              </Button>
             </motion.div>
           </motion.div>
 
@@ -320,7 +340,7 @@ function App() {
               <h2 className="heading-lg">Latest <span className="text-gradient">Articles</span></h2>
               <p className="text-muted" style={{ fontSize: '1.2rem', marginTop: 16 }}>Stay updated with the latest in tech and innovation.</p>
             </div>
-            <a href="#" className="btn btn-outline" style={{ borderRadius: 12 }}>View All Blogs</a>
+            <Button href="#" variant="outline" style={{ borderRadius: 12 }}>View All Blogs</Button>
           </div>
 
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="grid-creative">
@@ -354,9 +374,9 @@ function App() {
               Fill out the form below or reach out to us directly. Our specialist will contact you within 24 hours.
             </p>
             <div style={{ display: 'flex', gap: 20, justifyContent: 'center', flexWrap: 'wrap' }}>
-              <button className="btn btn-primary btn-cta-responsive" style={{ background: '#ff3d00', color: '#fff', border: 'none' }}>
+              <Button className="btn-cta-responsive" style={{ background: '#ff3d00' }}>
                 Book Free Consultation
-              </button>
+              </Button>
               <div style={{ display: 'flex', alignItems: 'center', gap: 12, color: '#fff', fontWeight: 600 }}>
                 <div style={{ width: 50, height: 50, borderRadius: '50%', background: 'rgba(255,255,255,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                   <MessageCircle size={24} />
@@ -407,7 +427,7 @@ function App() {
               <p className="text-muted" style={{ fontSize: '0.95rem' }}>Subscribe to our newsletter for latest tech insights and case studies.</p>
               <div className="newsletter-form" style={{ marginTop: 10 }}>
                 <input type="email" placeholder="Email Address" style={{ padding: '16px 20px', borderRadius: 12, border: '1px solid var(--border-light)', width: '100%', outline: 'none' }} />
-                <button style={{ position: 'absolute', right: 8, top: 8, bottom: 8, background: '#ff3d00', color: '#fff', border: 'none', padding: '0 20px', borderRadius: 8, fontWeight: 700 }}>Join</button>
+                <Button style={{ position: 'absolute', right: 8, top: 8, bottom: 8, padding: '0 20px' }}>Join</Button>
               </div>
             </div>
           </div>
