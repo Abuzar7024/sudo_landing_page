@@ -146,7 +146,7 @@ function App() {
         </div>
       </div>
 
-      <section className="section" style={{ minHeight: '120vh', display: 'flex', alignItems: 'center', paddingTop: 180, paddingBottom: 100, position: 'relative' }}>
+      <section id="hero" className="section hero-section" style={{ position: 'relative' }}>
         <div style={{ position: 'absolute', top: '15%', left: '50%', width: '600px', height: '600px', background: 'var(--accent-secondary)', filter: 'blur(180px)', opacity: 0.1, borderRadius: '50%', pointerEvents: 'none' }} />
         
         <div className="container hero-container" style={{ display: 'grid', gridTemplateColumns: '1.2fr 0.8fr', alignItems: 'center', gap: 60 }}>
@@ -392,7 +392,7 @@ function App() {
             <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
               <h4 style={{ marginBottom: 10, fontSize: '1.2rem' }}>Join Us</h4>
               <p className="text-muted" style={{ fontSize: '0.95rem' }}>Subscribe to our newsletter for latest tech insights and case studies.</p>
-              <div style={{ position: 'relative', marginTop: 10 }}>
+              <div className="newsletter-form" style={{ marginTop: 10 }}>
                 <input type="email" placeholder="Email Address" style={{ padding: '16px 20px', borderRadius: 12, border: '1px solid var(--border-light)', width: '100%', outline: 'none' }} />
                 <button style={{ position: 'absolute', right: 8, top: 8, bottom: 8, background: '#ff3d00', color: '#fff', border: 'none', padding: '0 20px', borderRadius: 8, fontWeight: 700 }}>Join</button>
               </div>
