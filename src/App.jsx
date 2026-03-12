@@ -60,6 +60,13 @@ const Button = ({ children, variant = "primary", className = "", href, style, ..
 function App() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  });
 
   useEffect(() => {
     // Initialize Lenis for Smooth Scroll
@@ -96,7 +103,9 @@ function App() {
   };
 
   return (
-    <>
+    <div id="app-root">
+      <motion.div className="scroll-progress" style={{ scaleX }} />
+
       <div className="bg-canvas">
         <motion.div
           animate={{ x: [0, 60, -30, 0], y: [0, -30, 60, 0] }}
@@ -165,15 +174,15 @@ function App() {
           <X size={32} />
         </button>
 
-        <div style={{ marginTop: 40, display: 'flex', flexDirection: 'column', gap: 24 }}>
+        <div style={{ marginTop: 60, display: 'flex', flexDirection: 'column', gap: 32 }}>
           <a href="#services" onClick={() => setMobileMenuOpen(false)}>Services</a>
           <a href="#portfolio" onClick={() => setMobileMenuOpen(false)}>Work</a>
           <a href="#testimonials" onClick={() => setMobileMenuOpen(false)}>Clients</a>
           <a href="#blog" onClick={() => setMobileMenuOpen(false)}>Resources</a>
         </div>
 
-        <div style={{ marginTop: 'auto', paddingTop: 40 }}>
-          <Button href="#contact" onClick={() => setMobileMenuOpen(false)} style={{ width: '100%' }}>
+        <div style={{ marginTop: 'auto', paddingBottom: 20 }}>
+          <Button href="#contact" onClick={() => setMobileMenuOpen(false)}>
             Book Free Consultation
           </Button>
         </div>
@@ -184,7 +193,7 @@ function App() {
 
         <div className="container hero-container" style={{ display: 'grid', gridTemplateColumns: '1.2fr 0.8fr', alignItems: 'center', gap: 60 }}>
           <motion.div initial="hidden" animate="visible" variants={stagger} className="hero-content" style={{ position: 'relative', zIndex: 2 }}>
-            <motion.div variants={fadeIn} className="badge-new" style={{ backdropFilter: 'blur(10px)', border: '1px solid var(--accent-primary)', color: 'var(--accent-primary)' }}>
+            <motion.div variants={fadeIn} className="badge-new">
               <div style={{ color: '#ff3d00' }}><Zap size={16} fill="currentColor" /></div>
               Pioneering the Digital Frontier
             </motion.div>
@@ -374,7 +383,7 @@ function App() {
               Fill out the form below or reach out to us directly. Our specialist will contact you within 24 hours.
             </p>
             <div style={{ display: 'flex', gap: 20, justifyContent: 'center', flexWrap: 'wrap' }}>
-              <Button className="btn-cta-responsive" style={{ background: '#ff3d00' }}>
+              <Button className="btn-cta-responsive" style={{ color: '#ffffff' }}>
                 Book Free Consultation
               </Button>
               <div style={{ display: 'flex', alignItems: 'center', gap: 12, color: '#fff', fontWeight: 600 }}>
@@ -427,7 +436,7 @@ function App() {
               <p className="text-muted" style={{ fontSize: '0.95rem' }}>Subscribe to our newsletter for latest tech insights and case studies.</p>
               <div className="newsletter-form" style={{ marginTop: 10 }}>
                 <input type="email" placeholder="Email Address" style={{ padding: '16px 20px', borderRadius: 12, border: '1px solid var(--border-light)', width: '100%', outline: 'none' }} />
-                <Button style={{ position: 'absolute', right: 8, top: 8, bottom: 8, padding: '0 20px' }}>Join</Button>
+                <Button style={{ position: 'absolute', right: 8, top: 8, bottom: 8, padding: '0 20px', color: '#ffffff' }}>Join</Button>
               </div>
             </div>
           </div>
@@ -442,7 +451,7 @@ function App() {
           </div>
         </div>
       </footer>
-    </>
+    </div>
   );
 }
 

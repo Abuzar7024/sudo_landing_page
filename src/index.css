@@ -31,6 +31,12 @@ html, body {
   padding: 0;
 }
 
+@media (max-width: 768px) {
+  html, body {
+    padding-top: 40px !important; /* Requested gap from very top of website */
+  }
+}
+
 #root {
   width: 100%;
   overflow-x: hidden;
@@ -100,11 +106,12 @@ body {
 }
 
 .btn-primary {
-  background: var(--accent-deep);
-  color: #fff;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  background: var(--accent-primary); /* Changed to orange as requested */
+  color: #ffffff !important; /* Forced white text for visibility */
+  box-shadow: 0 10px 30px rgba(255, 61, 0, 0.15);
   position: relative;
   overflow: hidden;
+  border: none;
 }
 .btn-primary::before {
   content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
@@ -251,6 +258,14 @@ h1, h2, h3, h4 { font-family: var(--font-heading); font-weight: 700; color: var(
   transform: scale(1.1);
 }
 
+/* --- Scroll Progress Bar --- */
+.scroll-progress {
+  position: fixed; top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(to right, var(--accent-primary), var(--accent-secondary));
+  transform-origin: 0%; z-index: 2001;
+  pointer-events: none;
+}
+
 /* --- Navbar --- */
 .navbar {
   position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
@@ -375,6 +390,19 @@ h1, h2, h3, h4 { font-family: var(--font-heading); font-weight: 700; color: var(
   line-height: 1.2;
 }
 
+.mobile-menu-overlay .btn-primary {
+  background: #ff3d00 !important;
+  color: #ffffff !important;
+  font-size: 1.2rem !important;
+  padding: 20px 40px !important;
+  border-radius: 50px !important; /* Pill shape for premium feel */
+  font-weight: 700 !important;
+  box-shadow: 0 15px 35px rgba(255, 61, 0, 0.3) !important;
+  width: 100% !important;
+  text-align: center;
+  margin-top: 20px;
+}
+
 .mobile-menu-btn { 
   display: none; 
   background: var(--bg-card); 
@@ -392,9 +420,14 @@ h1, h2, h3, h4 { font-family: var(--font-heading); font-weight: 700; color: var(
   .container { padding: 0 20px; width: 100%; box-sizing: border-box; }
   .section { padding: 60px 0; overflow: hidden; width: 100%; } 
   
+  .navbar {
+    padding: 60px 20px 12px !important; /* Even more top padding for clearance */
+  }
+
+  /* Increase top clearance for hero */
   .hero-section {
     min-height: auto;
-    padding-top: 130px; /* Increased from 110px for even more clearance */
+    padding-top: 140px !important; /* Adjusted relative to new navbar padding */
     padding-bottom: 40px;
   }
   
@@ -497,10 +530,14 @@ h1, h2, h3, h4 { font-family: var(--font-heading); font-weight: 700; color: var(
 
 /* --- Utilities --- */
 .badge-new {
-  display: inline-flex; align-items: center; padding: 8px 20px; border-radius: 100px;
-  background: #fff; border: 1px solid var(--border-light);
-  font-family: var(--font-heading); font-size: 0.85rem; font-weight: 600;
-  color: var(--text-main); margin-bottom: 32px; gap: 10px;
+  display: inline-flex; align-items: center; padding: 10px 24px; border-radius: 100px;
+  background: rgba(255,255,255,0.7); 
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--border-light);
+  font-family: var(--font-heading); font-size: 0.85rem; font-weight: 700;
+  color: var(--accent-primary); margin-bottom: 32px; gap: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.03);
 }
 
 .grid-creative {
