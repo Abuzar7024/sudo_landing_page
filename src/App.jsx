@@ -137,12 +137,25 @@ function App() {
       </nav>
 
       <div className={`mobile-menu-overlay ${mobileMenuOpen ? 'active' : ''}`}>
-        <a href="#services" onClick={() => setMobileMenuOpen(false)}>Services</a>
-        <a href="#portfolio" onClick={() => setMobileMenuOpen(false)}>Work</a>
-        <a href="#testimonials" onClick={() => setMobileMenuOpen(false)}>Clients</a>
-        <a href="#blog" onClick={() => setMobileMenuOpen(false)}>Resources</a>
-        <div style={{ marginTop: 'auto', display: 'flex', flexDirection: 'column', gap: 16 }}>
-          <a href="#contact" className="btn btn-primary" style={{ width: '100%' }}>Book Free Consultation</a>
+        <button 
+          className="mobile-menu-close" 
+          onClick={() => setMobileMenuOpen(false)}
+          style={{ position: 'absolute', top: 30, right: 24, background: 'var(--border-subtle)', border: 'none', padding: 12, borderRadius: 12 }}
+        >
+          <X size={32} />
+        </button>
+
+        <div style={{ marginTop: 40, display: 'flex', flexDirection: 'column', gap: 24 }}>
+          <a href="#services" onClick={() => setMobileMenuOpen(false)}>Services</a>
+          <a href="#portfolio" onClick={() => setMobileMenuOpen(false)}>Work</a>
+          <a href="#testimonials" onClick={() => setMobileMenuOpen(false)}>Clients</a>
+          <a href="#blog" onClick={() => setMobileMenuOpen(false)}>Resources</a>
+        </div>
+
+        <div style={{ marginTop: 'auto', paddingTop: 40 }}>
+          <a href="#contact" onClick={() => setMobileMenuOpen(false)} className="btn btn-primary btn-cta-responsive" style={{ width: '100%', color: '#fff' }}>
+            Book Free Consultation
+          </a>
         </div>
       </div>
 
